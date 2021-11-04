@@ -1,16 +1,16 @@
 # TheSingularity
 
-Agustín Izquierdo
+Agustín Izquierdo(Interactividad y UX)
 
-Alejandro Labrador
+Alejandro Labrador(progrmación)
 
-Álvaro Ferrandiz
+Álvaro Ferrandiz(Modelado y Animación)
 
-Óscar García
+Óscar García(Diseñador)
 
-Elisa de la Peña 
+Elisa de la Peña (Arte)
 
 Basada en una nueva mitología, nuestra historia cuenta como tras ser resucitada en un apocalipsis por una Diosa que nos encomienda una misión,
 debemos explorar y elegir si restablecer la línea temporal.
 
-A lo largo del juego el jugador puede encontrar bifurcaciones ocultas en las que descubre otra parte de la infromación que le permite dudar de la que le ha sido proporcionada anteriormente.
+A lo largo del juego el jugador puede encontrar bifurcaciones ocultas en las que descubre otra parte de la información que le permite dudar de la que le ha sido proporcionada anteriormente.
