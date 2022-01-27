@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     public float desplX;
     public bool dashColor;
     public IAGhoul iAGhoul;
+    public CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -23,22 +24,22 @@ public class PlayerMove : MonoBehaviour
         dashColor = false;
         rb = GetComponent<Rigidbody>();
         iAGhoul = GetComponent<IAGhoul>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
         desplX = Input.GetAxis("Vertical");
         desplZ = Input.GetAxis("Horizontal");
 
-        transform.Translate(desplX * -speed * Time.deltaTime, 0, 0);
-        transform.Translate(0, 0, desplZ * speed * Time.deltaTime);
-        
-    }
+        transform.Translate(0, 0, desplX * speed * Time.deltaTime);
+        transform.Translate(desplZ * speed * Time.deltaTime, 0, 0);
 
-    void Update()
-    {
+
+
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Dash();
@@ -48,6 +49,7 @@ public class PlayerMove : MonoBehaviour
     public void Dash()
     {
         rb.velocity = Vector3.one;
+        print("das");
         rb.AddForce(desplX * -dashSpeed, 0, desplZ * dashSpeed);
         player.GetComponent<Renderer>().material = dash;
         StartCoroutine("DashEnd");
@@ -65,11 +67,10 @@ public class PlayerMove : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.name == "Ghoul")
+        if(collision.gameObject.layer == 8)
         {
 
                 player.GetComponent<Renderer>().material = damage;
-                rb.AddForce(Vector3.back * 100 * Time.deltaTime);
             
         }
     }
@@ -81,5 +82,6 @@ public class PlayerMove : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
     }
+
 
 }

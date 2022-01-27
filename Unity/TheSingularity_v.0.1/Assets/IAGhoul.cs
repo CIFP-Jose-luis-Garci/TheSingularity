@@ -35,7 +35,7 @@ public class IAGhoul : MonoBehaviour
 
         dist = Vector3.Distance(goal.position, transform.position);
         
-        if(dist <= 40 && animator.GetBool("Atacar") == false && dist > 7)
+        if(dist <= 40 && animator.GetBool("Atacar") == false && dist > 5)
         {
             Destino();
 
@@ -47,11 +47,10 @@ public class IAGhoul : MonoBehaviour
             Comportamiento();
             agent.enabled = false;
         }
-        if(dist <= 7 && animator.GetBool("Atacar") == false)
+        if(dist <= 5)
         {
-            Comportamiento();
+            Atacar();
             agent.enabled = false;
-            rutina = 2;
         }
 
         if(animator.GetBool("Atacar") == true)
@@ -63,29 +62,6 @@ public class IAGhoul : MonoBehaviour
             ataco = false;
         }
 
-
-        Vector3 rayDirection = goal.position;
-
-        RaycastHit hit;
-
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 3;
-
-        if(Physics.Raycast(transform.position, forward, out hit))
-        {
-            if(hit.collider.gameObject.name == "Player" && dist < 10)
-            {
-                rb.velocity = Vector3.zero;
-                animator.SetBool("Atacar", true);
-                StartCoroutine("FinAtaque");
-            }
-            else
-            {
-                animator.SetBool("Atacar", false);
-            }
-        }
-        Debug.DrawRay(transform.position, forward, Color.yellow);
-
-        print(rutina);
     }
 
     public void Destino()
@@ -148,25 +124,21 @@ public class IAGhoul : MonoBehaviour
 
     IEnumerator FinAtaque()
     {
-        yield return new WaitForSeconds(2.3f);
+        yield return new WaitForSeconds(1.2f);
         animator.SetBool("Atacar", false);
         rb.velocity = Vector3.zero;
         rutina = 1;
     }
-    private void OnCollisionEnter(Collision collision)
+    private void Atacar()
     {
-        if (collision.gameObject.name == "Player")
-        {
+
             animator.SetBool("Atacar", true);
             StartCoroutine("FinAtaque");
             animator.SetBool("Idle", false);
             animator.SetBool("Corre", false);
             animator.SetBool("Idle2", false);
-        }
-        else
-        {
-            animator.SetBool("Atacar", false);
-        }
+
+
     }
 
 
