@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     public bool dashColor;
     public IAGhoul iAGhoul;
     public CharacterController controller;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         iAGhoul = GetComponent<IAGhoul>();
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,21 +39,44 @@ public class PlayerMove : MonoBehaviour
         transform.Translate(0, 0, desplX * speed * Time.deltaTime);
         transform.Translate(desplZ * speed * Time.deltaTime, 0, 0);
 
+        if(desplX < 0)
+        {
+            animator.SetBool("Correr", true);
+        }
+        if (desplX > 0)
+        {
+            animator.SetBool("Correr", true);
+        }
+        if (desplX == 0)
+        {
+            animator.SetBool("Correr", false);
+        }
+        if (desplX == 0)
+        {
+            animator.SetBool("Correr", false);
+        }
 
 
-        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Dash();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetBool("Ataque", true);
+        }
+        else
+        {
+            animator.SetBool("Ataque", false);
         }
     }
 
     public void Dash()
     {
-        rb.velocity = Vector3.one;
-        print("das");
-        rb.AddForce(desplX * -dashSpeed, 0, desplZ * dashSpeed);
-        player.GetComponent<Renderer>().material = dash;
+
+        rb.AddForce(0, 0, dashSpeed);
+        animator.SetBool("Dash", true);
+        animator.SetBool("Correr", false);
         StartCoroutine("DashEnd");
 
 
@@ -60,9 +85,10 @@ public class PlayerMove : MonoBehaviour
     IEnumerator DashEnd()
     {
         yield return new WaitForSeconds(0.3f);
+        animator.SetBool("Dash", false);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        player.GetComponent<Renderer>().material = run;
+
     }
 
     public void OnTriggerEnter(Collider collision)

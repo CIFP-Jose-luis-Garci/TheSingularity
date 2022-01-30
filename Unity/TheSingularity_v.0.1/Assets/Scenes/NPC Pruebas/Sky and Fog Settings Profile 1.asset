@@ -143,13 +143,13 @@ MonoBehaviour:
     max: 360
   skyIntensityMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   exposure:
     m_OverrideState: 1
     m_Value: 4.62
   multiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 15.22
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0.8490566, g: 0.06007475, b: 0.21111977, a: 1}
+    m_Value: {r: 0.38679248, g: 0.0748042, b: 0.13106439, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -223,7 +223,7 @@ MonoBehaviour:
     showEyeDropper: 1
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.8018868, g: 0.5862852, b: 0.75513786, a: 1}
+    m_Value: {r: 0.754717, g: 0.28835887, b: 0.31573012, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -246,13 +246,13 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 12.93
   maximumHeight:
     m_OverrideState: 1
     m_Value: 51.93
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 2.74
+    m_Value: 8.85
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
@@ -432,8 +432,8 @@ MonoBehaviour:
     min: 0
     max: 1
   aerosolTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.8679245, g: 0.76557493, b: 0.76557493, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -452,8 +452,8 @@ MonoBehaviour:
     min: 1
     max: 10
   groundTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.4, g: 0.25, b: 0.15, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.5943396, g: 0.34554747, b: 0.19904771, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 0
