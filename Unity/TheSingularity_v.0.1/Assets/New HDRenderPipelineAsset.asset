@@ -428,11 +428,11 @@ MonoBehaviour:
       Fog_Budget:
       - 0.166
       - 0.33
-      - 0.666
+      - 0.34
       Fog_DepthRatio:
       - 0.666
       - 0.666
-      - 0.5
+      - 0.48
   allowShaderVariantStripping: 1
   enableSRPBatcher: 1
   shaderVariantLogLevel: 0
