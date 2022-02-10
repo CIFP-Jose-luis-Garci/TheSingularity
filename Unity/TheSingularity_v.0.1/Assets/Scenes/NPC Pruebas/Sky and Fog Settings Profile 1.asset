@@ -319,7 +319,7 @@ MonoBehaviour:
     showEyeDropper: 1
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.754717, g: 0.28835887, b: 0.31573012, a: 1}
+    m_Value: {r: 0.2735849, g: 0.040005337, b: 0.053352714, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -342,13 +342,13 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: 11.1
+    m_Value: 7.7
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 63.84
+    m_Value: 65.73
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 17.32
+    m_Value: 9.81
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf384b154398e341b6b29969c078198, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
