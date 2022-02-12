@@ -207,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 96474825}
+  - component: {fileID: 96474826}
   m_Layer: 5
   m_Name: botones
   m_TagString: Untagged
@@ -238,6 +239,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &96474826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96474824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac91cec98abb8468153107edb3c414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &461428293
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,8 +263,9 @@ GameObject:
   - component: {fileID: 461428297}
   - component: {fileID: 461428296}
   - component: {fileID: 461428295}
+  - component: {fileID: 461428298}
   m_Layer: 5
-  m_Name: Cargar Partida
+  m_Name: Config/cargar partida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,11 +312,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 0.050980397, g: 0.08627451, b: 0.13333334, a: 1}
     m_HighlightedColor: {r: 0.09411766, g: 0.227451, b: 0.9490197, a: 1}
     m_PressedColor: {r: 0.9071598, g: 0.42185828, b: 0.9433962, a: 1}
     m_SelectedColor: {r: 0.04705883, g: 0.20784315, b: 0.9803922, a: 1}
-    m_DisabledColor: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 0.5019608}
+    m_DisabledColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -320,7 +334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 461428296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 461428298}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &461428296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +385,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461428293}
   m_CullTransparentMesh: 1
+--- !u!114 &461428298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461428293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac91cec98abb8468153107edb3c414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &591603169
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_Color: {r: 0.5529412, g: 0.5529412, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -450,6 +488,7 @@ GameObject:
   - component: {fileID: 600928332}
   - component: {fileID: 600928331}
   - component: {fileID: 600928330}
+  - component: {fileID: 600928333}
   m_Layer: 5
   m_Name: Continuar
   m_TagString: Untagged
@@ -498,11 +537,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 0.050980397, g: 0.08627451, b: 0.13333334, a: 1}
     m_HighlightedColor: {r: 0.09411766, g: 0.227451, b: 0.9490197, a: 1}
     m_PressedColor: {r: 0.9071598, g: 0.42185828, b: 0.9433962, a: 1}
     m_SelectedColor: {r: 0.04705883, g: 0.20784315, b: 0.9803922, a: 1}
-    m_DisabledColor: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 0.5019608}
+    m_DisabledColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -520,7 +559,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 600928331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 600928333}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &600928331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,6 +610,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600928328}
   m_CullTransparentMesh: 1
+--- !u!114 &600928333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600928328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac91cec98abb8468153107edb3c414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625248897
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +709,7 @@ GameObject:
   - component: {fileID: 655639827}
   - component: {fileID: 655639826}
   - component: {fileID: 655639825}
+  - component: {fileID: 655639829}
   m_Layer: 5
   m_Name: Nueva Partida
   m_TagString: Untagged
@@ -674,11 +738,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 0.050980397, g: 0.08627451, b: 0.13333334, a: 1}
     m_HighlightedColor: {r: 0.09411766, g: 0.227451, b: 0.9490197, a: 1}
     m_PressedColor: {r: 0.9071598, g: 0.42185828, b: 0.9433962, a: 1}
     m_SelectedColor: {r: 0.04705883, g: 0.20784315, b: 0.9803922, a: 1}
-    m_DisabledColor: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 0.5019608}
+    m_DisabledColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -696,7 +760,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 655639826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 655639829}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &655639826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +831,18 @@ RectTransform:
   m_AnchoredPosition: {x: 454, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &655639829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655639824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac91cec98abb8468153107edb3c414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1076806161
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_Color: {r: 0.5529412, g: 0.5529412, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -900,7 +988,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cargar Partida
+  m_Text: "Configuraci\xF3n"
 --- !u!222 &1089034465
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -921,8 +1009,9 @@ GameObject:
   - component: {fileID: 1128820495}
   - component: {fileID: 1128820494}
   - component: {fileID: 1128820493}
+  - component: {fileID: 1128820496}
   m_Layer: 5
-  m_Name: Opciones
+  m_Name: Controles/opt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,11 +1058,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 0.050980397, g: 0.08627451, b: 0.13333334, a: 1}
     m_HighlightedColor: {r: 0.09411766, g: 0.227451, b: 0.9490197, a: 1}
     m_PressedColor: {r: 0.9071598, g: 0.42185828, b: 0.9433962, a: 1}
     m_SelectedColor: {r: 0.04705883, g: 0.20784315, b: 0.9803922, a: 1}
-    m_DisabledColor: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 0.5019608}
+    m_DisabledColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -991,7 +1080,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1128820494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1128820496}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1128820494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1131,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128820491}
   m_CullTransparentMesh: 1
+--- !u!114 &1128820496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128820491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac91cec98abb8468153107edb3c414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318751749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1323,7 @@ GameObject:
   - component: {fileID: 1691317016}
   - component: {fileID: 1691317015}
   - component: {fileID: 1691317014}
+  - component: {fileID: 1691317017}
   m_Layer: 5
   m_Name: "Cr\xE9ditos"
   m_TagString: Untagged
@@ -1258,11 +1372,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
+    m_NormalColor: {r: 0.050980397, g: 0.08627451, b: 0.13333334, a: 1}
     m_HighlightedColor: {r: 0.09411766, g: 0.227451, b: 0.9490197, a: 1}
     m_PressedColor: {r: 0.9071598, g: 0.42185828, b: 0.9433962, a: 1}
     m_SelectedColor: {r: 0.04705883, g: 0.20784315, b: 0.9803922, a: 1}
-    m_DisabledColor: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 0.5019608}
+    m_DisabledColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1280,7 +1394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1691317015}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1691317017}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: CargarEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1691317015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,6 +1445,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691317012}
   m_CullTransparentMesh: 1
+--- !u!114 &1691317017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691317012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ac91cec98abb8468153107edb3c414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1716981802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,7 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_Color: {r: 0.5529412, g: 0.5529412, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1774,7 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_Color: {r: 0.5529412, g: 0.5529412, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1794,7 +1932,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Opciones
+  m_Text: Controles
 --- !u!222 &2075450537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1853,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  m_Color: {r: 0.5529412, g: 0.5529412, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
