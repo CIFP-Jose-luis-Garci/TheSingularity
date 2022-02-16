@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform meshPlayer;
     public Animator animator;
     private float gravity;
+    public bool atackjugador;
 
     private void Start()
     {
@@ -67,10 +68,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             animator.SetBool("Ataque", true);
+            atackjugador = true;
+
         }
         else
         {
             animator.SetBool("Ataque", false);
+            atackjugador = false;
         }
     }
 

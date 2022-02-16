@@ -9,11 +9,11 @@ namespace DissolveExample
         // Start is called before the first frame update
         List<Material> materials = new List<Material>();
         bool PingPong = false;
-        PlayerMove PlayerMove;
+        PlayerMovement PlayerMove;
         float value;
         void Start()
         {
-            PlayerMove = FindObjectOfType<PlayerMove>();
+            PlayerMove = FindObjectOfType<PlayerMovement>();
 
             var renders = GetComponentsInChildren<Renderer>();
             for (int i = 0; i < renders.Length; i++)
@@ -40,7 +40,7 @@ namespace DissolveExample
                 
                 if(value >= 0)
                 {
-                    value -= 1 * Time.deltaTime;
+                    value -= 8 * Time.deltaTime;
                 }
                 
                 for (int i = 0; i < materials.Count; i++)
