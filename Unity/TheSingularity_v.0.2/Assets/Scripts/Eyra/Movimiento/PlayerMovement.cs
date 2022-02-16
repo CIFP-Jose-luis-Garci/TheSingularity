@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        
         inputX = Input.GetAxis("Horizontal");
         inputZ = Input.GetAxis("Vertical");
 
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Atacar();
         if (character.isGrounded)
         {
             movement.y = 0;
@@ -58,6 +60,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 lookDir = new Vector3(movement.x, 0, movement.z);
             meshPlayer.rotation = Quaternion.LookRotation(lookDir);
+        }
+    }
+    void Atacar()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            animator.SetBool("Ataque", true);
+        }
+        else
+        {
+            animator.SetBool("Ataque", false);
         }
     }
 
