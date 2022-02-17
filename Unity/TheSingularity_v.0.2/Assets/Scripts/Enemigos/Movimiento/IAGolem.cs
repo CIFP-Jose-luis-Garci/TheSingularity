@@ -18,7 +18,7 @@ public class IAGolem : MonoBehaviour
     public bool ataco;
     Vector3 newGoal;
     public Transform Golem;
-
+    VidaGolem vida;
 
     // Start is called before the first frame update
     void Start()
@@ -28,23 +28,35 @@ public class IAGolem : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         agent.speed = 40;
         espera = Random.Range(0, 6);
+        vida = GetComponent<VidaGolem>();
+    }
 
+    private void FixedUpdate()
+    {
+        if(vida.vida <= 0)
+        {
+
+        }
+        else
+        {
+            Vivo();
+        }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Vivo()
     {
 
         dist = Vector3.Distance(goal.position, transform.position);
 
-        if (dist <= 40 && animator.GetBool("Atacar") == false && dist > 12)
+        if (dist <= 100 && animator.GetBool("Atacar") == false && dist > 12)
         {
             Destino();
 
             agent.enabled = true;
 
         }
-        if (dist > 40)
+        if (dist > 100)
         {
             Comportamiento();
             agent.enabled = true;

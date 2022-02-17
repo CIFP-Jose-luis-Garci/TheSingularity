@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,17 @@ public class PlayerMovement : MonoBehaviour
     private float gravity;
     public bool atackjugador;
 
+    public float cooldownTime = 2f;
+    private float nextFireTime = 0;
+    public static int noOfClicks = 0;
+    float lastClickedTime = 0;
+    float maxComboDelay = 1;
+    float i = 0;
+    float cronometro;
+
+    [SerializeField] GameObject vfx;
+    [SerializeField] Transform sword;
+
     private void Start()
     {
 
@@ -23,24 +36,62 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        
+
         inputX = Input.GetAxis("Horizontal");
         inputZ = Input.GetAxis("Vertical");
 
         if(inputX == 0 && inputZ == 0)
         {
             animator.SetBool("Correr", false);
-            print("no corro");
+            
         }
         else
         {
             animator.SetBool("Correr", true);
         }
+
+        if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.4f && animator.GetCurrentAnimatorStateInfo(0).IsName("attack_1"))
+        {
+            animator.SetBool("Ataque", false);
+            StartCoroutine("Slash");
+            
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.4f && animator.GetCurrentAnimatorStateInfo(0).IsName("attack_2"))
+        {
+            animator.SetBool("Ataque2", false);
+            StartCoroutine("Slash");
+
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.1f && animator.GetCurrentAnimatorStateInfo(0).IsName("attack_3"))
+        {
+            animator.SetBool("Ataque3", false);
+            StartCoroutine("Slash");
+
+        }
+        
+            if (Input.GetButton("Fire1"))
+            {
+                Atacar();
+                
+                speed = 0.5f;
+                atackjugador = true;
+
+            }
+        else
+        {
+            noOfClicks = 0;
+            speed = 1;
+            atackjugador = false;
+        }
+
+
+        vfx.transform.position = sword.position;
+        vfx.transform.rotation = sword.rotation;
     }
 
     private void FixedUpdate()
     {
-        Atacar();
+
         if (character.isGrounded)
         {
             movement.y = 0;
@@ -65,17 +116,38 @@ public class PlayerMovement : MonoBehaviour
     }
     void Atacar()
     {
-        if (Input.GetButton("Fire1"))
+        lastClickedTime = Time.time;
+        noOfClicks++;
+        
+        if(noOfClicks == 1)
         {
             animator.SetBool("Ataque", true);
-            atackjugador = true;
-
         }
-        else
+
+        noOfClicks = Mathf.Clamp(noOfClicks, 0, 3);
+
+        if(noOfClicks >= 2 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.3f && animator.GetCurrentAnimatorStateInfo(0).IsName("attack_1"))
         {
             animator.SetBool("Ataque", false);
-            atackjugador = false;
+            animator.SetBool("Ataque2", true);
+        }
+        if (noOfClicks >= 3 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.3f && animator.GetCurrentAnimatorStateInfo(0).IsName("attack_2"))
+         {
+            animator.SetBool("Ataque2", false);
+            animator.SetBool("Ataque3", true);
         }
     }
+  
+    IEnumerator Slash()
+    {
+        
+        cronometro += 1 * Time.deltaTime;
 
+        if (cronometro >= 0.5f)
+        {
+            Instantiate(vfx, sword.position, sword.rotation);
+            cronometro = 0;
+        }
+        yield return new WaitForSeconds(1);
+    }
 }

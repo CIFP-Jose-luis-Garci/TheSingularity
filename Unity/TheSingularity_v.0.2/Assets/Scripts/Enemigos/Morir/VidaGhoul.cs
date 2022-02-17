@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class VidaGhoul : MonoBehaviour
 {
-    PlayerMove PlayerMove;
+    PlayerMovement PlayerMove;
     public float vida;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMove = FindObjectOfType<PlayerMove>();
+        PlayerMove = FindObjectOfType<PlayerMovement>();
     }
 
     // Update is called once per frame

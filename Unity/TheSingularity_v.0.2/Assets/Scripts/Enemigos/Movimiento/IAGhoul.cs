@@ -41,14 +41,14 @@ public class IAGhoul : MonoBehaviour
         dist = Vector3.Distance(goal.position, transform.position);
         posicion = transform.position;
         
-        if(dist <= 40 && animator.GetBool("Atacar") == false && dist > 9)
+        if(dist <= 100 && animator.GetBool("Atacar") == false && dist > 9)
         {
             Destino();
 
                 agent.enabled = true; 
 
         }
-        if(dist > 40)
+        if(dist > 100)
         {
             Comportamiento();
             agent.enabled = true;
