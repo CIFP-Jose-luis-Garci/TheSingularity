@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Atacar();
                 
-                speed = 0.5f;
+                speed = 0.1f;
                 atackjugador = true;
 
             }
@@ -103,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
         movement = new Vector3(inputX * speed, movement.y, inputZ * speed);
         character.Move(movement);
+        
+
 
         if (inputX == 0 && inputZ == 0)
         {

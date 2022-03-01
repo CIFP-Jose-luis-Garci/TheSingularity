@@ -6,6 +6,8 @@ public class VidaGhoul : MonoBehaviour
 {
     PlayerMovement PlayerMove;
     public float vida;
+    [SerializeField] Animator anim;
+    public bool hit;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,12 @@ public class VidaGhoul : MonoBehaviour
         if (collision.gameObject.layer == 9 && PlayerMove.atackjugador == true)
         {
             StartCoroutine("Daño");
+            anim.SetBool("Hit", true);
+        }
+        else
+        {
+            hit = false;
+            anim.SetBool("Hit", false);
         }
     }
 
@@ -34,6 +42,8 @@ public class VidaGhoul : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         vida = vida - 34;
+        hit = true;
+        
 
         StopCoroutine("Daño");
     }

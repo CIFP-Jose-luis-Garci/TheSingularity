@@ -20,8 +20,8 @@ public class IAGhoul : MonoBehaviour
     Vector3 newGoal;
     Vector3 posicion;
     public Transform Ghoul;
-   
-    
+
+    VidaGhoul vida;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class IAGhoul : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         agent.speed = 40;
         espera = Random.Range(0, 6);
-        
+        vida = GetComponent<VidaGhoul>();
     }
     
     // Update is called once per frame
@@ -40,8 +40,8 @@ public class IAGhoul : MonoBehaviour
         print(rutina);
         dist = Vector3.Distance(goal.position, transform.position);
         posicion = transform.position;
-        
-        if(dist <= 100 && animator.GetBool("Atacar") == false && dist > 9)
+
+        if (dist <= 100 && animator.GetBool("Atacar") == false && dist > 9 && vida.hit == false)
         {
             Destino();
 
@@ -53,7 +53,7 @@ public class IAGhoul : MonoBehaviour
             Comportamiento();
             agent.enabled = true;
         }
-        if(dist <= 9)
+        if (dist <= 9 && vida.hit == false)
         {
             Atacar();
             agent.enabled = false;
