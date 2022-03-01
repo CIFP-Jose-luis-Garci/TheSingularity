@@ -20,7 +20,8 @@ public class VidaGhoul : MonoBehaviour
     {
         if(vida <= 0)
         {
-            Destroy(gameObject);
+            anim.SetBool("Death", true);
+            Destroy(gameObject, 5);
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -30,13 +31,15 @@ public class VidaGhoul : MonoBehaviour
             StartCoroutine("Daño");
             anim.SetBool("Hit", true);
         }
-        else
-        {
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        
             hit = false;
             anim.SetBool("Hit", false);
-        }
+        
     }
-
     IEnumerator Daño()
     {
         yield return new WaitForSeconds(0.5f);

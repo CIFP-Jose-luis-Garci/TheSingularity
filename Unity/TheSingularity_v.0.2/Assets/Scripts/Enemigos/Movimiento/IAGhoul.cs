@@ -14,7 +14,7 @@ public class IAGhoul : MonoBehaviour
     public float grado;
     public Quaternion angulo;
     float cronometro;
-    Rigidbody rb;
+    [SerializeField] Rigidbody rb;
     public float espera;
     public bool ataco;
     Vector3 newGoal;
@@ -33,9 +33,22 @@ public class IAGhoul : MonoBehaviour
         espera = Random.Range(0, 6);
         vida = GetComponent<VidaGhoul>();
     }
-    
+
+    private void FixedUpdate()
+    {
+        if(vida.vida <= 0)
+        {
+            agent.enabled = false;
+            rb.AddForce(Vector3.back * 300);
+        }
+        else
+        {
+            Vivo();
+        }
+    }
+
     // Update is called once per frame
-    void FixedUpdate()
+    void Vivo()
     {
         print(rutina);
         dist = Vector3.Distance(goal.position, transform.position);

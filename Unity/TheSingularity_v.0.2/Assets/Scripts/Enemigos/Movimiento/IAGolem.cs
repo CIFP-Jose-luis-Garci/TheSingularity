@@ -35,7 +35,7 @@ public class IAGolem : MonoBehaviour
     {
         if(vida.vida <= 0)
         {
-
+            agent.enabled = false;
         }
         else
         {

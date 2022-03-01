@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject vfx;
     [SerializeField] Transform sword;
 
+    [SerializeField] float vida = 150;
+
     private void Start()
     {
 
@@ -35,6 +37,20 @@ public class PlayerMovement : MonoBehaviour
         animator = meshPlayer.GetComponent<Animator>();
     }
     private void Update()
+    {
+        if(vida <= 0)
+        {
+            animator.SetBool("Death", true);
+        }
+        else
+        {
+            Vivo();
+        }
+
+        print(vida);
+    }
+
+    private void Vivo()
     {
 
         inputX = Input.GetAxis("Horizontal");
@@ -87,10 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
         vfx.transform.position = sword.position;
         vfx.transform.rotation = sword.rotation;
-    }
 
-    private void FixedUpdate()
-    {
+
 
         if (character.isGrounded)
         {
@@ -101,21 +115,27 @@ public class PlayerMovement : MonoBehaviour
             movement.y -= gravity * Time.deltaTime;
         }
 
-        movement = new Vector3(inputX * speed, movement.y, inputZ * speed);
-        character.Move(movement);
-        
+        Vector3 v_movement = character.transform.forward * inputZ;
 
+        character.transform.Rotate(Vector3.up * inputX * Time.deltaTime * 250);
 
-        if (inputX == 0 && inputZ == 0)
+        character.Move(v_movement * speed * 40 * Time.deltaTime);
+
+        if (inputZ < -0.1)
         {
-
+            speed = 0;
         }
         else
         {
-            Vector3 lookDir = new Vector3(movement.x, 0, movement.z);
-            meshPlayer.rotation = Quaternion.LookRotation(lookDir);
+            speed = 1;
         }
     }
+
+    private void FixedUpdate()
+    {
+
+    }
+
     void Atacar()
     {
         lastClickedTime = Time.time;
@@ -151,5 +171,28 @@ public class PlayerMovement : MonoBehaviour
             cronometro = 0;
         }
         yield return new WaitForSeconds(1);
+    }
+
+    IEnumerator Daño()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        vida = vida - 34;
+
+
+
+        StopCoroutine("Daño");
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            StartCoroutine("Daño");
+            animator.SetBool("Hit", true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        animator.SetBool("Hit", false);
     }
 }
