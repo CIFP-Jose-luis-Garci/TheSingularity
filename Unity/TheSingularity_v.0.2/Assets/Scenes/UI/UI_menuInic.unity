@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 1128820493}
   - component: {fileID: 1128820496}
   m_Layer: 5
-  m_Name: Controles/opt
+  m_Name: Logros
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 1691317014}
   - component: {fileID: 1691317017}
   m_Layer: 5
-  m_Name: "Cr\xE9ditos"
+  m_Name: "Salir/Cr\xE9ditos"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1399,8 +1399,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1691317017}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: CargarEscena
-        m_Mode: 3
+        m_MethodName: Salir
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1934,7 +1934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Controles
+  m_Text: Logros
 --- !u!222 &2075450537
 CanvasRenderer:
   m_ObjectHideFlags: 0

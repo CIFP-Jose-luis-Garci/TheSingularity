@@ -23,15 +23,15 @@ public class UI : MonoBehaviour
         switch (ActualScene)
         {
             case 0:
-                print("a");
+               // print("a");
                 if (Input.GetKeyDown(KeyCode.P))
                 {
                     CargarEscena(1);
                 }
                 
                 break;
-            case 1:
-                print("o");
+          //  case 1:
+              //  print("o");
                 if (Input.GetKeyDown(KeyCode.P))
                 {
                     CargarEscena(0);

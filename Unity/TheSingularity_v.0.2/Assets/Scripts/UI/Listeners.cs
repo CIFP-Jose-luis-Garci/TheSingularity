@@ -10,11 +10,13 @@ public class Listeners : MonoBehaviour, ISelectHandler
 
     GameObject volumeMenu;
     GameObject defaultMenu;
+    GameObject controlMenu;
     // Start is called before the first frame update
     private void Awake()
     {
         volumeMenu = GameObject.Find("opcionesMenu");
         defaultMenu = GameObject.Find("defaultMenu");
+        controlMenu = GameObject.Find("controlMenu");
 
     }
     void Start()
@@ -39,11 +41,18 @@ public class Listeners : MonoBehaviour, ISelectHandler
 
             volumeMenu.SetActive(true);
             defaultMenu.SetActive(false);
+            controlMenu.SetActive(false);
+
+        } else if(nombreBtn=="Controles") {
+            volumeMenu.SetActive(false);
+            defaultMenu.SetActive(false);
+            controlMenu.SetActive(true);
         }
         else
         {
             volumeMenu.SetActive(false);
             defaultMenu.SetActive(true);
+            controlMenu.SetActive(false);
         }
     }
 }

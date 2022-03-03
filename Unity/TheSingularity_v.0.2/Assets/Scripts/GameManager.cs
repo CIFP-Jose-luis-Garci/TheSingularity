@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static bool gamePaused;
     public static float volume;
+    public static float volume;
     public static bool alive;
     // Start is called before the first frame update
     void Start()
