@@ -25,7 +25,7 @@ public class PauseExit : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButton("Fire3"))
         {
             Pausar();
         }
